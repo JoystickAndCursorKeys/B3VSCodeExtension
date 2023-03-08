@@ -1,0 +1,29 @@
+{
+  "name": "b3basic",
+  "displayName": "B3-Basic",
+  "description": "B3-Basic",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "b3basic",
+      "aliases": ["B3 Basic", "b3 basic"],
+      "extensions": ["b3","bas","bbb"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "b3basic",
+      "scopeName": "source.b3",
+      "path": "./syntaxes/b3basic.tmLanguage.json"
+    }],
+    "languageserver": {
+      "command": "node",
+      "args": ["./b3language-server.js"]
+  }
+  }
+}

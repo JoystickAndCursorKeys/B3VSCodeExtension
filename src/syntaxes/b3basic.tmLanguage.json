@@ -1,0 +1,110 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "B3 Basic",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [		
+
+			{
+				"name": "constant.numeric.integer",
+				"match": "[0-9]+([.][0-9]+)*"
+			},
+			
+			{
+				"captures": {
+					"1": {
+						"name": "punctuation.definition.comment.b3 basic"
+					}
+				},
+				"comment": "Comment",
+				"match": "^\\s*(REM|rem)\\s+(.*)$",
+				"name": "comment.line.b3 basic"
+			},
+			{
+				"name": "keyword.control.b3 basic",
+				"match": "(?i)\\b(IF|FOR|STEP|NEXT|GOTO|GOSUB|SUB|RETURN|END|DEF|FN|NEW|LIST|RUN)\\b"
+			}
+			,
+			{
+				"name": "keyword.control1.b3 basic",
+				"match": "(?i)(THEN|TO)\\b"
+			}
+			,			
+			{
+				"name": "keyword.control2.b3 basic",
+				"match": "(?i)\\b(CLR|DIM|DATA|LOAD|SAVE|FS|DIR)\\b"
+			}
+			,
+			{
+				"name": "keyword.debug.b3 basic",
+				"match": "(?i)\\b(VARS|TRACEVAR|CLRTRACEVAR)\\b"
+			}
+			,
+			{
+                "match": "(?i)\\b(IMMEDIATE|POKEC|POKECL|POKECCLL|LINE|GCOLOR|FCOLOR|ORIGIN|BOX|PLOT)\\b",
+                "name": "keyword.output.b3 basic"
+			},
+			{
+                "match": "(?i)\\b(GET|INPUT|GETKEY|READ|RESTORE|DATA|PEEKCL|PEEKC|PEEKC)\\b",
+                "name": "keyword.input.b3 basic"
+			},
+			
+			{
+                "match": "(?i)\\b(VOLUME|CHVOLUME|BEEP|SOUND|PLAYFX|CLEARFX|ADDFX)\\b",
+                "name": "keyword.sound.b3 basic"
+			}
+			,
+			{
+                "match": "(?i)\\b(DISPLAY|BORDER|TEXTAREA|COLOR|BORDER|CENTER|LOCATE|CLS|RESET|PRINT)\\b",
+                "name": "keyword.console.b3 basic"
+			}
+			,
+			{
+                "match": "(?i)\\b(WAITMS)\\b",
+                "name": "keyword.misc.b3 basic"
+			}			
+			,
+			{
+                "match": "(?i)\\b(HEX2DEC|INT|RND|ATN|COS|EXP|LOG|SGN|SIN|SQR|TAN|LEN|ASC|VAL|COLS|ROWS|WIDTH|HEIGHT|FN|LEFT\\$|MID\\$|RIGHT\\$|CHR\\$|STR\\$|HEX\\$)\\b",
+                "name": "support.function.b3 basic"
+			},
+
+			{
+				"name": "operator.boolean",
+				"match": "(AND|OR|XOR|NOT)"
+			},
+
+			{
+				"name": "variable",
+				"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+			},			
+			{
+				"name": "operator",
+				"match": "(\\+|\\-|\\*|\\/|\\^|\\=)"
+			}
+			
+
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.b3 basic",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.b3 basic",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.b3"
+}

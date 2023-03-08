@@ -1,0 +1,107 @@
+{
+    "name": "b3basic",
+    "file_extensions": [
+        "basic",
+        "bas",
+        "b3"
+    ],
+    "scope": "source.b3basic",
+    "contexts": {
+        "main": [
+            {
+                "match": "\"",
+                "scope": "punctuation.definition.string.begin.b3basic",
+                "push": "double_quoted_string"
+            },
+            {
+                "match": "(?i)REM",
+                "scope": "punctuation.definition.comment.b3basic",
+                "push": "line_comment"
+            },
+            {
+                "match": "\\(",
+                "push": "brackets"
+            },
+            {
+                "match": "\\)",
+                "scope": "invalid.illegal.stray-bracket-end"
+            },
+            {
+                "match": "(?i)\\b(CLR|LET|DIM|DEF|GOTO|GOSUB|RETURN|NEXT|END|PRINT|INPUT|GET|GETKEY|SUB)\\b",
+                "scope": "keyword.control.b3basic"
+            },
+            {
+                "match": "(?i)\\b(VOLUME|CHVOLUME|BEEP|SOUND|PLAYFX|CLEARFX|ADDFX)\\b",
+                "scope": "keyword.sound.b3basic"
+            },
+            {
+                "match": "(?i)\\b(DISPLAY|TEXTAREA|COLOR|BORDER|CENTER|LOCATE|CLS|RESET)\\b",
+                "scope": "keyword.console.b3basic"
+            },
+            {
+                "match": "(?i)\\b(IF|THEN|FOR|ON)\\b",
+                "scope": "keyword.control.conditional.b3basic"
+            },
+            {
+                "match": "(=|<|>)",
+                "scope": "keyword.operator.logical.b3basic"
+            },
+            {
+                "match": "(\\^|\\*|\\/|\\+|\\-)",
+                "scope": "keyword.operator.arithmetic.b3basic"
+            },
+            {
+                "match": "(?i)\\b(OR|AND|TO)\\b",
+                "scope": "keyword.operator.word.b3basic"
+            },
+            {
+                "match": "(?i)\\b(POKEC|POKECL|POKECCL|PEEKC|PEEKCL|DATA|READ|RESTORE)\\b",
+                "scope": "storage.type.b3basic"
+            },
+            {
+                "match": "\\b(-)?[0-9.]+\\b",
+                "scope": "constant.numeric.b3basic"
+            },
+            {
+                "match": "(?i)\\b(INT|RND|ATN|COS|EXP|LOG|SGN|SIN|SQR|TAN|LEN|ASC|VAL|COLS|ROWS|WIDTH|HEIGHT|FN)\\b",
+                "scope": "entity.name.function.b3basic"
+            },
+            {
+                "match": "(?i)(LEFT\\$|MID\\$|RIGHT\\$|CHR\\$|STR\\$)",
+                "scope": "entity.name.function.b3basic"
+            }
+        ],
+        "brackets": [
+            {
+                "match": "\\)",
+                "pop": true
+            },
+            {
+                "include": "main"
+            }
+        ],
+        "double_quoted_string": [
+            {
+                "meta_scope": "string.quoted.double.b3basic"
+            },
+            {
+                "match": "\\\\.",
+                "scope": "constant.character.escape.b3basic"
+            },
+            {
+                "match": "\"",
+                "scope": "punctuation.definition.string.end.b3basic",
+                "pop": true
+            }
+        ],
+        "line_comment": [
+            {
+                "meta_scope": "comment.line.b3basic"
+            },
+            {
+                "match": "$",
+                "pop": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,124 @@
+{
+	"scopeName": "source.b3basic",
+	"uuid": "e7de52b7-8378-4396-848e-e9da04e24ddb",
+	"fileTypes": [
+		"bas",
+		"b3",
+		"bbb"
+	],
+	"name": "b3basic",
+	"patterns": [
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.b3basic"
+				}
+			},
+			"comment": "Comment",
+			"match": "(').*",
+			"name": "comment.line.b3basic"
+		},
+		{
+			"comment": "Delimiter",
+			"match": "[,:;]",
+			"name": "meta.delimiter.object.b3basic"
+		},
+		{
+			"comment": "Keyword",
+			"match": "(?i)(\\b((END )?IF|(END )?SELECT|(RESUME )?NEXT|CASE|CLOSE|DO|ELSE|FOR|GOSUB|GOTO|LOOP|ON|OPEN|RETURN|THEN|TO|UNTIL|WHILE)\\b)",
+			"name": "keyword.control.b3basic"
+		},
+		{
+			"comment": "Function",
+			"match": "(?i)(\\b(CHR$|CLS|COLOR|DATA|INPUT|INT|KEY|LEN|LINE|LOCATE|PALETTE|PLAY|PRINT|PSET|PUT|REDIM|RND|SCREEN|TAB|VIEW)\\b)",
+			"name": "support.function.b3basic"
+		},
+		{
+			"comment": "Operator",
+			"match": "(?i)((\\+|=|<|>|    <>|AND|OR))",
+			"name": "keyword.operator.b3basic"
+		},
+		{
+			"comment": "Numeric",
+			"match": "\\b(\\d(\\.\\d)?)+",
+			"name": "constant.numeric.b3basic"
+		},
+		{
+			"comment": "Global",
+			"match": "\\b\\w+\\$",
+			"name": "constant.global.b3basic"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "entity.name.function.b3basic"
+				}
+			},
+			"comment": "SUB",
+			"match": "(?i)(^(\\w+):)",
+			"name": "meta.function.b3basic"
+		},
+		{
+			"comment": "Brace, round",
+			"match": "[\\(\\)]",
+			"name": "meta.brace.round.b3basic"
+		},
+		{
+			"comment": "Brace, curly",
+			"match": "[\\{\\}]",
+			"name": "meta.brace.curly.b3basic"
+		},
+		{
+			"begin": "(\\w+\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "constant.array.b3basic"
+				}
+			},
+			"comment": "Array",
+			"end": "(\\))",
+			"endCaptures": {
+				"1": {
+					"name": "constant.array.b3basic"
+				}
+			},
+			"name": "other.array.b3basic",
+			"patterns": [
+				{
+					"include": "$self"
+				}
+			]
+		},
+		{
+			"begin": "(\")",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.definition.string.begin.b3basic"
+				}
+			},
+			"comment": "String, double-quoted",
+			"end": "(\")",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.definition.string.begin.b3basic"
+				}
+			},
+			"name": "string.quoted.double.b3basic",
+			"patterns": [
+				{
+					"comment": "Escaped double-quote inside double-quoted string",
+					"match": "(\\\")",
+					"name": "constant.character.escape.b3basic"
+				},
+				{
+					"comment": "Single quote inside double-quoted string",
+					"match": "(')",
+					"name": "other.b3basic"
+				},
+				{
+					"include": "$self"
+				}
+			]
+		}
+	]
+}

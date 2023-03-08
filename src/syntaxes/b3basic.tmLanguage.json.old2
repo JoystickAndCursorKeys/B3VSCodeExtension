@@ -1,0 +1,39 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "B3 Basic",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+			{
+				"name": "keyword.control.b3 basic",
+				"match": "\\b(IF|THEN|FOR|NEXT|GOTO|GOSUB|SUB|RETURN|END|DEF|FN)\\b"
+			},
+			{
+				"name": "keyword.control2.b3 basic",
+				"match": "\\b(DIM|DATA|)\\b"
+			}		
+		
+		]
+		},
+		"strings": {
+			"name": "string.quoted.double.b3 basic",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.b3 basic",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.b3"
+}

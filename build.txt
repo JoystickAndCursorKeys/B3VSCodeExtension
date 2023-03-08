@@ -1,0 +1,1 @@
+Just go to the src folder and run vsce package
